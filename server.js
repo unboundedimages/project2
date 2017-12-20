@@ -22,13 +22,20 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 var routes = require("./controllers/tripController.js");
+//what is routes pointing to?  That folder doesnt exist
+//to handle middleware use app.use(express.static("public"));
+//doc ref = http://expressjs.com/en/starter/static-files.html
 app.use("/", routes);
 
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
+// var db = require is in the wrong file.  It belongs in the
+// controller file, i.e. tripControlloer.js unless this
+// is here for testing another page.
 var db = require("./models");
-db.sequelize.sync({ force: true }).then(function() {
+
+db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
     });
