@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 var routes = require("./controllers/tripController.js");
-app.use("/login", routes);
+app.use("/", routes);
 
 
 // Syncing our sequelize models and then starting our Express app
