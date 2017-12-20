@@ -1,0 +1,32 @@
+#loginBox {
+    text-align: center;
+    padding: 50px;
+    margin-top: 20px;
+}
+
+#logIn,
+#signUp {
+    margin: 10px;
+}
+
+.title {
+    margin-top: 80px;
+    text-align: center;
+}
+
+#navbar {
+    height: 100px;
+}
+
+.navbar {
+    padding: 7px;
+}
+
+#field {
+    margin-right: 10px;
+}
+
+#left {
+    text-align: center;
+
+}

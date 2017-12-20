@@ -1,11 +1,107 @@
-<div class="container">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        </div>
 
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><strong>Trip Planner</strong></a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <form class="navbar-form navbar-left" id="tripForm">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" class="form-control city" placeholder="Destination..." id="field">
+                <span class="glyphicon glyphicon-calendar"></span>
+                <input type="text" class="form-control start" placeholder="Start date..." id="field">
+                <span class="glyphicon glyphicon-calendar"></span>
+                <input type="text" class="form-control end" placeholder="End date..." id="field">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Search History</h3>
+                </div>
+                <div class="panel-body">
+                    Charlotte, NC
+                </div>
             </div>
         </div>
-    </nav>
+
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+
+                    <div class="col-md-4" id="left">
+                        <div class="row">
+                            <p class="destination">@travelDestination</p>
+                        </div>
+                        <div class="row">
+                            <p class="image">Image</p>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-8" id="right">
+                        <div class="row">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    Current Weather
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    Weather History
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
+
+<script type="text/javascript">
+    function titleCase(str) {
+        str = str.toLowerCase().split(' ');
+
+        for (var i = 0; i < str.length; i++) {
+            str[i] = str[i].split('');
+            str[i][0] = str[i][0].toUpperCase();
+            str[i] = str[i].join('');
+        }
+        return str.join(' ');
+    }
+
+    $(document).on("submit", function(event) {
+        event.preventDefault();
+
+        var city = $(".city").val().trim();
+        $(".destination").text(titleCase(city));
+        $(".image").html('<img src="http://via.placeholder.com/250x250">');
+    });
+</script>
