@@ -1,7 +1,7 @@
 {
   "name": "project2",
   "version": "1.0.0",
-  "description": "",
+  "description": "user authorization attempt",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,15 +15,22 @@
     "sequelize",
     "node.js"
   ],
-  "author": "",
+  "author": "Joe",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/unboundedimages/project2/issues"
   },
   "homepage": "https://github.com/unboundedimages/project2#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mysql2": "^1.5.1"
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.28.6"
   }
 }
