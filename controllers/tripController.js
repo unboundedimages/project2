@@ -4,7 +4,8 @@ var router = express.Router();
 
 
 //index handlebars, user log in
-router.get('/login', function(req, res) {
+router.get('/', function(req, res) {
+
     res.render("index");
 });
 
@@ -31,3 +32,6 @@ router.post("api/cityData", function(req, res) {
             res.json(results);
         };
 });
+
+
+module.exports = router;
