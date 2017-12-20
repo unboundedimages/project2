@@ -1,0 +1,27 @@
+FRONT END
+=========================
+
+* Handlebars
+  * Main: {{{ body }}}
+  * 1st page: user login page
+  * 2nd page: dashboard
+  
+* Bootstrap
+  * User Login: Input form, buttons
+  * Dashboard: Search input, datetime picker, nav bar 
+
+
+BACK END
+==========================
+* File set up:
+  *
+
+* Authorization: 
+  * Passport npm package - satisifys new technology 
+  * Create database
+
+* Routes:
+  *
+  
+* Dataset (or) API 
+  * 
