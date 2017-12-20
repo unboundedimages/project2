@@ -1,11 +1,7 @@
 FRONT END
 =========================
 
-* Handlebars
-  * Main: {{{ body }}}
-  * 1st page: user login page
-  * 2nd page: dashboard
-  
+* Handlebars 
 * Bootstrap
   * User Login: Input form, buttons
   * Dashboard: Search input, datetime picker, nav bar 
@@ -13,15 +9,61 @@ FRONT END
 
 BACK END
 ==========================
-* File set up:
-  *
-
+* File set up
+  * Server.js
+  * Package.json
+  
+  * Config
+    * config.json
+    
+  * Models
+    * userProfile.js
+       * var User
+          user ID (sequelize)(foreign key)
+          userName (passport)
+          userPassword (passport) 
+    * search.js
+       * var Search
+          timestamp (sequelize)
+          id (sequelize)
+          location
+          results
+          foreign key (user)
+          
+  * Routes:
+    * API
+        * search-api 
+           GET for all searches for that user
+           PUT to update
+           POST add additional searches    
+           DELETE to delete searches  
+    * HTML
+      * userAuth page
+          POST to add user info
+      * dashboard page
+          POST add new searches
+          GET display search results
+          UPDATE previous searches
+          DELETE searches    
+          
+  * Public
+     * css
+     * js
+     * images
+     
+  * Views
+     * index.handlebars
+     * dashboard.handlebars
+     * layouts
+        * main.handlebars
+     * partials
+        * results.handlebars
+     
+     
+     
 * Authorization: 
   * Passport npm package - satisifys new technology 
-  * Create database
-
-* Routes:
-  *
   
 * Dataset (or) API 
   * 
+                  
