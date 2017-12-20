@@ -64,6 +64,7 @@ BACK END
 * Authorization: 
   * Passport npm package - satisifys new technology 
   
-* Dataset (or) API 
-  * 
+* Results
+  * Current weather: https://openweathermap.org/api
+  * History: existing dataset 
                   
