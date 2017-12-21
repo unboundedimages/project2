@@ -79,7 +79,7 @@ app.use("/", routes);
 // controller file, i.e. tripControlloer.js unless this
 // is here for testing another page.
 var db = require("./models");
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
     });
