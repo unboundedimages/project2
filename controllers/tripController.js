@@ -24,7 +24,11 @@ router.post("/api/userData", function(req, res) {
 
 router.get("/results", function(req, res) {
     db.SearchLocation.findAll({}).then(function(data) {
-        res.render("dashboard", { City: data });
+        var hbsObject = {
+            History: data,
+            City: data
+        };
+        res.render("dashboard", hbsObject);
     });
 });
 
@@ -50,7 +54,7 @@ router.post("/results", function(req, res) {
     });
 });
 
-router.delete("/results/:id", function(req, res) {
+router.delete("/results/delete/:id", function(req, res) {
     db.SearchLocation.destroy({
         where: {
             id: req.params.id
