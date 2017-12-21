@@ -1,16 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
     var SearchLocation = sequelize.define("SearchLocation", {
-        location: {
-            type: DataTypes.STRING,
+        date: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                len: [8]
+            }
+        },
+        state: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 len: [2]
             }
         },
-        results: {
-            type: DataTypes.TEXT,
+        city: {
+            type: DataTypes.STRING,
             allowNull: false,
-            len: [1]
+            validate: {
+                len: [1]
+            }
         }
     });
     return SearchLocation;

@@ -1,5 +1,5 @@
-CREATE DATABASE tripPlanner;
-
 DROP DATABASE IF EXISTS tripPlanner;
+
+CREATE DATABASE tripPlanner;
 
 USE tripPlanner;

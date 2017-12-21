@@ -2,6 +2,7 @@
 var express = require("express");
 var app = express();
 var PORT = process.env.PORT || 8080;
+var routeController = require("./controller/controllerWeather.js");
 
 // Sets up the Express app to handle data parsing
 var bodyParser = require("body-parser");
@@ -20,7 +21,7 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 require('./routes/api-routes.js')(app);
-
+app.use("/", routeController);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 var db = require("./models");
