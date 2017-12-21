@@ -1,8 +1,13 @@
 //Sets up Node and Express
 var express = require("express");
 var app = express();
+var passport = require('passport');
+var session = require('express-session');
+var bodyParser = require("body-parser");
+var env = require('dotenv').load();
+var exphbs = require('express-handlebars');
 var PORT = process.env.PORT || 8080;
-
+var routeController = require("./controller/controllerWeather.js");
 
 // Sets up the Express app to handle data parsing
 var bodyParser = require("body-parser");
@@ -30,6 +35,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+// Sets up Express Engine Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 /////////// ALTERNATE PER PASSPORT DOCS TO HANDLE AUTH //////////////
 //For Handlebars
@@ -42,8 +50,6 @@ app.use(passport.session()); // persistent login sessions
 //     res.send('Welcome to Passport with Sequelize');
 // });
 
-
-
 // Routes
 // =============================================================
 var routeController = require("./controller/controllerWeather.js");
@@ -54,8 +60,6 @@ app.use("/", routes);
 
 var authRoute = require('./routes/auth.js')(app, passport);
 
-
-
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 var db = require("./models");
@@ -64,7 +68,6 @@ var db = require("./models");
 require('./config/passport/passport.js')(passport, db.user);
 
 db.sequelize.sync({ force: true }).then(function() {
-
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
     });

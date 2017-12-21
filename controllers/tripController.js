@@ -1,8 +1,9 @@
 var db = require("../models");
 var express = require("express");
 var router = express.Router();
-
-
+var axios = require("axios");
+var path = require("path");
+var authKey = "c79c9c57fca6d026";
 //index handlebars, user log in
 router.get('/', function(req, res) {
     res.render("index");
@@ -10,8 +11,8 @@ router.get('/', function(req, res) {
 
 router.post("/api/userData", function(req, res) {
     db.User.create([
-            "***"
-            ]).then(function(results) {
+        "***"
+    ]).then(function(results) {
         res.json(results);
     });
 });
@@ -29,14 +30,27 @@ router.get("/results", function(req, res) {
 });
 
 router.post("/results", function(req, res) {
-    db.SearchLocation.create({
-        city: req.body.city,
-        // state: req.body.state,
-        // date: req.body.date
-    }).then(function(results) {
-        res.json(results);
+    console.log("this is working(ish)");
+    // reassign variable here
+    axios({
+        method: 'get',
+        url: 'https://api.wunderground.com/api/' + authKey + '/history_' + req.body.userDate + '/q/' + req.body.userState + '/' + req.body.userCity + '.json'
+    }).then(function(axiosResults) {
+        console.log(axiosResults.data.history.observations[5].tempi);
+        db.SearchLocation.create({
+            date: req.body.userDate,
+            state: req.body.userState,
+            city: req.body.userCity,
+            precipitation: axiosResults.data.history.observations[10].conds,
+            temperature: axiosResults.data.history.observations[10].tempi,
+            humidity: axiosResults.data.history.observations[10].hum
+        }).then(function(databaseResult) {
+            res.json(databaseResult);
+        });
+
     });
 });
+
 
 router.delete("/results/:id", function(req, res) {
     db.SearchLocation.destroy({
@@ -47,6 +61,5 @@ router.delete("/results/:id", function(req, res) {
         res.json(results);
     });
 });
-
 
 module.exports = router;
