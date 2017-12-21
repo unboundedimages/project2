@@ -17,7 +17,6 @@ router.post("/api/userData", function(req, res) {
     });
 });
 
-
 //dashboard handlebars, city search
 // router.get("/results", function(req, res) {
 //     res.render("dashboard");
@@ -34,13 +33,13 @@ router.post("/results", function(req, res) {
     // reassign variable here
     axios({
         method: 'get',
-        url: 'https://api.wunderground.com/api/' + authKey + '/history_' + req.body.userDate + '/q/' + req.body.userState + '/' + req.body.userCity + '.json'
+        url: 'https://api.wunderground.com/api/' + authKey + '/history_' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json'
     }).then(function(axiosResults) {
         console.log(axiosResults.data.history.observations[5].tempi);
         db.SearchLocation.create({
-            date: req.body.userDate,
-            state: req.body.userState,
-            city: req.body.userCity,
+            date: req.body.date,
+            state: req.body.state,
+            city: req.body.city,
             precipitation: axiosResults.data.history.observations[10].conds,
             temperature: axiosResults.data.history.observations[10].tempi,
             humidity: axiosResults.data.history.observations[10].hum
@@ -50,7 +49,6 @@ router.post("/results", function(req, res) {
 
     });
 });
-
 
 router.delete("/results/:id", function(req, res) {
     db.SearchLocation.destroy({

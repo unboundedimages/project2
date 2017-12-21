@@ -16,11 +16,11 @@
 
             <form class="navbar-form navbar-left" id="tripForm">
                 <span class="glyphicon glyphicon-search"></span>
-                <input type="text" class="form-control city" placeholder="Destination..." id="field" name="city">
+                <input type="text" class="form-control city" placeholder="City.." id="field" name="city">
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control start" placeholder="Start date..." id="field" name="state">
+                <input type="text" class="form-control state" placeholder="State." id="field" name="state">
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control end" placeholder="End date..." id="field" name="date">
+                <input type="text" class="form-control date" placeholder="Date..." id="field" name="date">
                 <button type="submit" class="btn btn-default submitButton">Submit</button>
             </form>
 
@@ -106,17 +106,17 @@
 
     $(document).on("submit", "#tripForm", function(event) {
         event.preventDefault();
-
         var location = {
-            city: $("[name=city]").val().trim(),
-            // state: $("[name=state]").val().trim(),
-            // date: $("[name=date]").val().trim()
+            city: $(".city").val().trim(),
+            state: $(".state").val().trim(),
+            date: $(".date").val().trim()
         };
         $.ajax({
             type: "POST",
             url: "/results",
             data: location
         }).done(function(data) {
+            console.log(data);
             $(".destination").text(titleCase(location.city));
             $(".history").append(titleCase(location.city) + "<br>");
             $(".image").html('<img src="https://via.placeholder.com/250x250">');
