@@ -78,7 +78,9 @@
                         <div class="row">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    Weather History
+                                    <p class="weatherHistory">
+                                        Weather History {{#each History}} {{this.precipitation}} {{this.temperature}} {{this.humidity}} {{/each}}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -120,8 +122,9 @@
             $(".destination").text(titleCase(location.city));
             $(".history").append(titleCase(location.city) + "<br>");
             $(".image").html('<img src="https://via.placeholder.com/250x250">');
-
+            $(".weatherHistory").text(data.temperature + data.humidity + data.precipitation);
             $("form").trigger("reset");
+
         });
     });
 
@@ -130,7 +133,7 @@
 
         $.ajax({
             type: "DELETE",
-            url: "/results/" + id
+            url: "/results/delete/" + id
         }).done(function() {
             console.log("delete button submitted");
             location.reload();
