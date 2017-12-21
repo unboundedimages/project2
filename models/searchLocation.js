@@ -20,6 +20,15 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: [1]
             }
+        },
+        precipitation: {
+            type: DataTypes.STRING
+        },
+        temperature: {
+            type: DataTypes.STRING
+        },
+        humidity: {
+            type: DataTypes.STRING
         }
     });
     return SearchLocation;
