@@ -30,7 +30,9 @@ router.get("/results", function(req, res) {
 
 router.post("/results", function(req, res) {
     db.SearchLocation.create({
-        location: req.body.location
+        city: req.body.city,
+        // state: req.body.state,
+        // date: req.body.date
     }).then(function(results) {
         res.json(results);
     });
@@ -45,15 +47,6 @@ router.delete("/results/:id", function(req, res) {
         res.json(results);
     });
 });
-
-// router.post("api/cityData", function(req, res) {
-//     db.SearchLocation.create([
-//             "****"
-//             ]),
-//         function(results) {
-//             res.json(results);
-//         };
-// });
 
 
 module.exports = router;
