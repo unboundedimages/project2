@@ -16,12 +16,12 @@
 
             <form class="navbar-form navbar-left" id="tripForm">
                 <span class="glyphicon glyphicon-search"></span>
-                <input type="text" class="form-control city" placeholder="Destination..." id="field">
+                <input type="text" class="form-control city" placeholder="Destination..." id="field" name="city">
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control start" placeholder="Start date..." id="field">
+                <input type="text" class="form-control start" placeholder="Start date..." id="field" name="state">
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control end" placeholder="End date..." id="field">
-                <button type="submit" class="btn btn-default">Submit</button>
+                <input type="text" class="form-control end" placeholder="End date..." id="field" name="date">
+                <button type="submit" class="btn btn-default submitButton">Submit</button>
             </form>
 
             <ul class="nav navbar-nav navbar-right">
@@ -40,7 +40,14 @@
                     <h3 class="panel-title">Search History</h3>
                 </div>
                 <div class="panel-body">
-                    <p class="history"></p>
+                    <p class="history">
+                        {{#each City}}
+
+                        <p>{{this.city}}
+                            <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton">XXX</button>
+                        </p>
+
+                        {{/each}}</p>
                 </div>
             </div>
         </div>
@@ -97,14 +104,36 @@
         return str.join(' ');
     }
 
-    $(document).on("submit", function(event) {
+    $(document).on("submit", "#tripForm", function(event) {
         event.preventDefault();
 
-        var city = $(".city").val().trim();
-        $(".destination").text(titleCase(city));
-        $(".history").append(titleCase(city) + "<br>");
-        $(".image").html('<img src="http://via.placeholder.com/250x250">');
+        var location = {
+            city: $("[name=city]").val().trim(),
+            // state: $("[name=state]").val().trim(),
+            // date: $("[name=date]").val().trim()
+        };
+        $.ajax({
+            type: "POST",
+            url: "/results",
+            data: location
+        }).done(function(data) {
+            $(".destination").text(titleCase(location.city));
+            $(".history").append(titleCase(location.city) + "<br>");
+            $(".image").html('<img src="https://via.placeholder.com/250x250">');
 
-        $("form").trigger("reset");
+            $("form").trigger("reset");
+        });
+    });
+
+    $(document).on("click", ".deleteButton", function() {
+        var id = $(this).data("deleteid");
+
+        $.ajax({
+            type: "DELETE",
+            url: "/results/" + id
+        }).done(function() {
+            console.log("delete button submitted");
+            location.reload();
+        });
     });
 </script>

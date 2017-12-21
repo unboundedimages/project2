@@ -2,21 +2,21 @@ module.exports = function(sequelize, DataTypes) {
     var SearchLocation = sequelize.define("SearchLocation", {
         date: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [8]
-            }
+            allowNull: true,
+            // validate: {
+            //     len: [8]
+            // }
         },
         state: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [2]
-            }
+            allowNull: true,
+            // validate: {
+            //     len: [2]
+            // }
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
