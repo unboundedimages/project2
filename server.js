@@ -7,10 +7,7 @@ var bodyParser = require("body-parser");
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars');
 var PORT = process.env.PORT || 8080;
-
-
-
-
+var routeController = require("./controller/controllerWeather.js");
 
 // Sets up the Express app to handle data parsing
 
@@ -28,8 +25,6 @@ app.use(session({
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
-
 
 
 // Sets up Express Engine Handlebars
@@ -51,9 +46,9 @@ app.get('/', function(req, res) {
 //Models
 var models = require("./models");
 
-
 // Routes
 // =============================================================
+app.use("/", routeController);
 var authRoute = require('./routes/auth.js')(app, passport);
 var routes = require("./controllers/tripController.js");
 
@@ -73,12 +68,10 @@ app.listen(5000, function(err) {
     else console.log(err);
 });
 
-
 //what is routes pointing to?  That folder doesnt exist
 //to handle middleware use app.use(express.static("public"));
 //doc ref = http://expressjs.com/en/starter/static-files.html
 app.use("/", routes);
-// app.use(express.static("public"));
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
