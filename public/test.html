@@ -3,27 +3,28 @@
 
 <head>
     <meta charset="utf-8">
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- Link to stylesheets here -->
     <title>Test HTML</title>
 
 </head>
 
 <body>
-    <h1>Is it wet or dry?</h1>
+    <h1>Input Search</h1>
     <form>
         <h2>City</h2>
-        <input type="text" name="location" class="city">
+        <input type="text" name="city" class="city">
         <h2>State</h2>
-        <input type="text" name="test" class="state">
+        <input type="text" name="state" class="state">
         <h2>Date</h2>
-        <input type="text" name="test" class="date">
-        <input type="submit" value="Submit">
+        <input type="text" name="date" class="date">
+        <input type="submit" value="Submit" id="submit">
 
     </form>
 
     <script type="text/javascript">
-        $("submit").on("click", function(event) {
+        $("#submit").on("click", function(event) {
+            console.log("we are clicking");
             event.preventDefault();
             var newSearch = {
                 userState: $(".state").val().trim(),

@@ -12,16 +12,17 @@ router.get("/html", function(req, res) {
 });
 
 router.post("/html", function(req, res) {
-    //reassign variable here
+    console.log("this is working(ish)");
+    // reassign variable here
     axios({
         method: 'get',
-        url: 'http://api.wunderground.com/api/' + authKey + 'history_' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json'
+        url: 'https://api.wunderground.com/api/' + authKey + '/history_' + req.body.userDate + '/q/' + req.body.userState + '/' + req.body.userCity + '.json'
     }).then(function(axiosResults) {
-        console.log(axiosResults);
+        console.log(axiosResults.data.history.observations[5]);
         db.SearchLocation.create({
-            date: req.body.date,
-            state: req.body.state,
-            city: req.body.city
+            date: req.body.userDate,
+            state: req.body.userState,
+            city: req.body.userCity
         }).then(function(databaseResult) {
             res.json(databaseResult);
         });
