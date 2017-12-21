@@ -38,27 +38,27 @@ app.set("view engine", "handlebars");
 
 /////////// ALTERNATE PER PASSPORT DOCS TO HANDLE AUTH //////////////
 //For Handlebars
-// app.set('views', './app/views')
-// app.engine('hbs', exphbs({
-//     extname: '.hbs'
-// }));
-// app.set('view engine', '.hbs');
+app.set('views', './views');
+app.engine('hbs', exphbs({
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 ///////////////////////////////////////////////////////////////////
 app.get('/', function(req, res) {
     res.send('Welcome to Passport with Sequelize');
 });
 
 //Models
-var models = require("./app/models");
+var models = require("./models");
 
 
 // Routes
 // =============================================================
-var authRoute = require('./app/routes/auth.js')(app, passport);
+var authRoute = require('./routes/auth.js')(app, passport);
 var routes = require("./controllers/tripController.js");
 
 //load passport strategies
-require('./app/config/passport/passport.js')(passport, models.user);
+require('./config/passport/passport.js')(passport, models.user);
 
 
 //Sync Database
