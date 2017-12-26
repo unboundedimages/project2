@@ -16,9 +16,9 @@
 
             <form class="navbar-form navbar-left" id="tripForm">
                 <span class="glyphicon glyphicon-search"></span>
-                <input type="text" class="form-control city" placeholder="City.." id="field" name="city">
-                <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control state" placeholder="State." id="field" name="state">
+                <input type="text" class="form-control city" placeholder="City..." id="field" name="city">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" class="form-control state" placeholder="State..." id="field" name="state">
                 <span class="glyphicon glyphicon-calendar"></span>
                 <input type="text" class="form-control date" placeholder="Date..." id="field" name="date">
                 <button type="submit" class="btn btn-default submitButton">Submit</button>
@@ -39,15 +39,18 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Search History</h3>
                 </div>
-                <div class="panel-body">
-                    <p class="history">
-                        {{#each City}}
+                <div class="panel-body history">
 
-                        <p>{{this.city}}
-                            <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton">XXX</button>
-                        </p>
+                    {{#each city}}
 
-                        {{/each}}</p>
+                    <p>{{this.city}}
+                        <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton">XXX</button>
+                    </p>
+
+
+                    {{/each}}
+
+
                 </div>
             </div>
         </div>
@@ -59,10 +62,12 @@
 
                     <div class="col-md-4" id="left">
                         <div class="row">
-                            <p class="destination">@travelDestination</p>
+                            <p class="destination">{{#each city}} {{this.city}}, {{this.state}} {{/each}}
+                            </p>
                         </div>
                         <div class="row">
-                            <p class="image">Image</p>
+                            <p class="image">Image {{#each Image}} {{this.image}} {{/each}}
+                            </p>
                         </div>
                     </div>
 
@@ -78,9 +83,10 @@
                         <div class="row">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <p class="weatherHistory">
-                                        Weather History {{#each History}} {{this.precipitation}} {{this.temperature}} {{this.humidity}} {{/each}}
+
+                                    <p id="weatherHistory"> Weather History <br> {{#each History}} {{this.precipitation}} {{this.temperature}} {{this.humidity}} {{/each}}
                                     </p>
+
                                 </div>
                             </div>
                         </div>
@@ -95,38 +101,38 @@
 </div>
 
 <script type="text/javascript">
-    function titleCase(str) {
-        str = str.toLowerCase().split(' ');
+    // function titleCase(str) {
+    //     str = str.toLowerCase().split(' ');
 
-        for (var i = 0; i < str.length; i++) {
-            str[i] = str[i].split('');
-            str[i][0] = str[i][0].toUpperCase();
-            str[i] = str[i].join('');
-        }
-        return str.join(' ');
-    }
+    //     for (var i = 0; i < str.length; i++) {
+    //         str[i] = str[i].split('');
+    //         str[i][0] = str[i][0].toUpperCase();
+    //         str[i] = str[i].join('');
+    //     }
+    //     return str.join(' ');
+    // }
+
 
     $(document).on("submit", "#tripForm", function(event) {
         event.preventDefault();
-        var location = {
+        $("#destination").empty();
+        $("#weatherHistory").empty();
+
+        var loc = {
             city: $(".city").val().trim(),
             state: $(".state").val().trim(),
             date: $(".date").val().trim()
         };
+
         $.ajax({
             type: "POST",
-            url: "/results",
-            data: location
+            url: "/api/newSearch",
+            data: loc
         }).done(function(data) {
-            console.log(data);
-            $(".destination").text(titleCase(location.city));
-            $(".history").append(titleCase(location.city) + "<br>");
-            $(".image").html('<img src="https://via.placeholder.com/250x250">');
-            $(".weatherHistory").text(data.temperature + data.humidity + data.precipitation);
-            $("form").trigger("reset");
-
+            location.reload();
         });
     });
+
 
     $(document).on("click", ".deleteButton", function() {
         var id = $(this).data("deleteid");
@@ -135,8 +141,14 @@
             type: "DELETE",
             url: "/results/delete/" + id
         }).done(function() {
-            console.log("delete button submitted");
             location.reload();
         });
     });
+
+
+    // $.get("/results", function(data) {
+    //     console.log(data);
+    // $("#destination").empty();
+    // $("#weatherHistory").empty();
+    // });
 </script>

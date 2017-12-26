@@ -4,6 +4,8 @@ var router = express.Router();
 var axios = require("axios");
 var path = require("path");
 var authKey = "c79c9c57fca6d026";
+
+
 //index handlebars, user log in
 router.get('/', function(req, res) {
     res.render("index");
@@ -18,21 +20,21 @@ router.post("/api/userData", function(req, res) {
 });
 
 //dashboard handlebars, city search
-// router.get("/results", function(req, res) {
-//     res.render("dashboard");
-// });
-
 router.get("/results", function(req, res) {
     db.SearchLocation.findAll({}).then(function(data) {
+        console.log("DATA CONSOLE: " + data);
         var hbsObject = {
             History: data,
-            City: data
+            Image: data,
+            city: data
         };
+        console.log(hbsObject);
+
         res.render("dashboard", hbsObject);
     });
 });
 
-router.post("/results", function(req, res) {
+router.post("/api/newSearch", function(req, res) {
     console.log("this is working(ish)");
     // reassign variable here
     axios({
@@ -47,6 +49,18 @@ router.post("/results", function(req, res) {
             precipitation: axiosResults.data.history.observations[10].conds,
             temperature: axiosResults.data.history.observations[10].tempi,
             humidity: axiosResults.data.history.observations[10].hum
+        }).then(function(databaseResult) {
+            res.json(databaseResult);
+        });
+    });
+
+    axios({
+        method: 'get',
+        url: 'https://api.wunderground.com/api/' + authKey + '/satellite/q/' + req.body.state + '/' + req.body.city + '.json'
+    }).then(function(axiosResults) {
+        console.log(axiosResults.data.satellite.image_url);
+        db.SearchLocation.create({
+            image: axiosResults.data.satellite.image_url
         }).then(function(databaseResult) {
             res.json(databaseResult);
         });
