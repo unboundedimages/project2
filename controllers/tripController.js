@@ -19,20 +19,18 @@ router.post("/api/userData", function(req, res) {
     });
 });
 
+
 //dashboard handlebars, city search
 router.get("/results", function(req, res) {
     db.SearchLocation.findAll({}).then(function(data) {
         console.log("DATA CONSOLE: " + data);
         var hbsObject = {
-            // History: data,
-            // Image: data,
             searchHistory: data,
             lastSearch: data[data.length - 1]
         };
         console.log(hbsObject);
 
         res.render("dashboard", hbsObject);
-
     });
 });
 
