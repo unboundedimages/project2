@@ -29,10 +29,19 @@ module.exports = function(sequelize, DataTypes) {
         },
         humidity: {
             type: DataTypes.STRING
-        },
-        image: {
-            type: DataTypes.STRING
         }
     });
+    // image: {
+    //     type: DataTypes.STRING
+    // }
+    SearchLocation.associate = function(models) {
+        // We're saying that a Post should belong to an Author
+        // A Post can't be created without an Author due to the foreign key constraint
+        SearchLocation.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return SearchLocation;
 };
