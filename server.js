@@ -10,6 +10,7 @@ var PORT = process.env.PORT || 8080;
 
 ////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
+/////////////////  MIDDLEWARE  ///////////////////////////
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,6 +28,10 @@ app.set('views', './views');
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set('view engine', '.hbs');
 app.set("view engine", "handlebars");
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static("public"));
+
 ///////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 // models will communicated with index.js and users.js
@@ -58,9 +63,6 @@ app.get('/', function(req, res) {
 });
 
 
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(express.static("public"));
 
 // Routes
 // =============================================================
