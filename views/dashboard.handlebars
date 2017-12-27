@@ -41,7 +41,7 @@
                 </div>
                 <div class="panel-body history">
 
-                    {{#each city}}
+                    {{#each searchHistory}}
 
                     <p>{{this.city}}
                         <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton">XXX</button>
@@ -62,11 +62,11 @@
 
                     <div class="col-md-4" id="left">
                         <div class="row">
-                            <p class="destination">{{#each city}} {{this.city}}, {{this.state}} {{/each}}
+                            <p class="destination">{{lastSearch.city}}, {{lastSearch.state}}
                             </p>
                         </div>
                         <div class="row">
-                            <p class="image">Image {{#each Image}} {{this.image}} {{/each}}
+                            <p class="image">Image {{lastSearch.image}}
                             </p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
 
-                                    <p id="weatherHistory"> Weather History <br> {{#each History}} {{this.precipitation}} {{this.temperature}} {{this.humidity}} {{/each}}
+                                    <p class="weatherHistory"> Weather History <br>{{lastSearch.precipitation}} {{lastSearch.temperature}} {{lastSearch.humidity}}
                                     </p>
 
                                 </div>
@@ -101,22 +101,8 @@
 </div>
 
 <script type="text/javascript">
-    // function titleCase(str) {
-    //     str = str.toLowerCase().split(' ');
-
-    //     for (var i = 0; i < str.length; i++) {
-    //         str[i] = str[i].split('');
-    //         str[i][0] = str[i][0].toUpperCase();
-    //         str[i] = str[i].join('');
-    //     }
-    //     return str.join(' ');
-    // }
-
-
     $(document).on("submit", "#tripForm", function(event) {
         event.preventDefault();
-        $("#destination").empty();
-        $("#weatherHistory").empty();
 
         var loc = {
             city: $(".city").val().trim(),
@@ -144,11 +130,4 @@
             location.reload();
         });
     });
-
-
-    // $.get("/results", function(data) {
-    //     console.log(data);
-    // $("#destination").empty();
-    // $("#weatherHistory").empty();
-    // });
 </script>
