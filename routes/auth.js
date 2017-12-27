@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
 
     // the route for posting to /signin.
     app.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/dashboard',
+            successRedirect: '/results',
 
             failureRedirect: '/signin'
         }
