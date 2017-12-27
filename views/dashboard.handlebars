@@ -135,10 +135,6 @@
     $(document).on("submit", "#tripForm", function(event) {
         event.preventDefault();
 
-        $.get("/results", function(data) {
-            console.log("*****CLIENT SIDE DATA: " + data);
-        });
-
         var loc = {
             city: $(".city").val().trim(),
             state: $(".state").val().trim(),
