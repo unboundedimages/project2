@@ -30,9 +30,9 @@ module.exports = function(sequelize, DataTypes) {
         humidity: {
             type: DataTypes.STRING
         },
-        image: {
-            type: DataTypes.STRING
-        }
+        // image: {
+        //     type: DataTypes.STRING
+        // }
     });
     return SearchLocation;
 };
