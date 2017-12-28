@@ -6,33 +6,31 @@ var path = require("path");
 var authKey = "c79c9c57fca6d026";
 
 
-//index handlebars, user log in
-router.get('/', function(req, res) {
-    res.render("index");
-});
+// //index handlebars, user log in
+// router.get('/', function(req, res) {
+//     res.render("index");
+// });
 
-router.post("/api/userData", function(req, res) {
-    db.User.create([
-        "***"
-    ]).then(function(results) {
-        res.json(results);
-    });
-});
+// router.post("/api/userData", function(req, res) {
+//     db.User.create([
+//         "***"
+//     ]).then(function(results) {
+//         res.json(results);
+//     });
+// });
+
 
 //dashboard handlebars, city search
 router.get("/results", function(req, res) {
     db.SearchLocation.findAll({}).then(function(data) {
         console.log("DATA CONSOLE: " + data);
         var hbsObject = {
-            // History: data,
-            // Image: data,
             searchHistory: data,
             lastSearch: data[data.length - 1]
         };
         console.log(hbsObject);
 
         res.render("dashboard", hbsObject);
-
     });
 });
 
@@ -48,7 +46,7 @@ router.post("/api/newSearch", function(req, res) {
             date: req.body.date,
             state: req.body.state,
             city: req.body.city,
-            precipitation: axiosResults.data.history.observations[10].conds,
+            precipitation: axiosResults.data.history.observations[10].rain,
             temperature: axiosResults.data.history.observations[10].tempi,
             humidity: axiosResults.data.history.observations[10].hum
         }).then(function(databaseResult) {
