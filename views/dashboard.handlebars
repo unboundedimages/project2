@@ -65,7 +65,7 @@
 
                     <div class="col-md-4" id="left">
                         <div class="row">
-                            <p class="destination">{{lastSearch.city}}, {{lastSearch.state}}
+                            <p class="destination">{{lastSearch.city}} {{lastSearch.state}}
                             </p>
                         </div>
                         <div class="row">
@@ -79,15 +79,15 @@
                         <div class="row">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    Current Weather
+                                    <p>Current Weather</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-
-                                    <p class="weatherHistory"> Weather History <br>{{lastSearch.precipitation}} {{lastSearch.temperature}} {{lastSearch.humidity}}
+                                    <p>Weather History</p>
+                                    <p class="weatherHistory"> <strong>Temperature: </strong>{{lastSearch.temperature}} | <strong>Humidity: </strong>{{lastSearch.humidity}} | <strong>Preciptiation: </strong>{{lastSearch.precipitation}}
                                     </p>
 
                                 </div>
@@ -103,26 +103,58 @@
 
     <!-- SECOND ROW -->
     <!-- ====================== -->
-    <div class="row">
+    <div class="row" id="adBox">
 
-        <div class="col-md-4">
+        <div class="col-md-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    AirBnB
+                    Airbnb<br>
+                    <a href="https://www.airbnb.com/" target="_blank"><img src="http://via.placeholder.com/120x120"></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    TripAdvisor
+                    Hostelworld<br>
+                    <a href="https://www.hostelworld.com/" target="_blank"><img src="http://via.placeholder.com/120x120"></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    Expedia
+                    Currency Converter<br>
+                    <a href="http://www.xe.com/currencyconverter/" target="_blank"><img src="http://via.placeholder.com/120x120"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    SkyScanner<br>
+                    <a href="https://www.skyscanner.com/" target="_blank"><img src="http://via.placeholder.com/120x120"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    TripAdvisor<br>
+                    <a href="https://www.tripadvisor.com/" target="_blank"><img src="http://via.placeholder.com/120x120"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    USA National Parks<br>
+                    <a href="https://www.nps.gov/findapark/index.htm" target="_blank"><img src="http://via.placeholder.com/120x120"></a>
                 </div>
             </div>
         </div>

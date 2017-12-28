@@ -46,7 +46,7 @@ router.post("/api/newSearch", function(req, res) {
             date: req.body.date,
             state: req.body.state,
             city: req.body.city,
-            precipitation: axiosResults.data.history.observations[10].conds,
+            precipitation: axiosResults.data.history.observations[10].rain,
             temperature: axiosResults.data.history.observations[10].tempi,
             humidity: axiosResults.data.history.observations[10].hum
         }).then(function(databaseResult) {
