@@ -22,7 +22,7 @@
                 <span class="glyphicon glyphicon-search"></span>
                 <input type="text" class="form-control state" placeholder="State..." id="field" name="state">
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control date" placeholder="Date..." id="field" name="date">
+                <input type="date" class="form-control date" placeholder="Date..." id="field" name="YYYY/MM/DD">
                 <button type="submit" class="btn btn-default submitButton">Submit</button>
             </form>
 
@@ -65,7 +65,7 @@
 
                     <div class="col-md-4" id="left">
                         <div class="row">
-                            <p class="destination">{{lastSearch.city}} {{lastSearch.state}}
+                            <p class="destination" id="dest">{{lastSearch.city}} {{lastSearch.state}}
                             </p>
                         </div>
                         <div class="row">
@@ -87,7 +87,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <p>Weather History</p>
-                                    <p class="weatherHistory"> <strong>Temperature: </strong>{{lastSearch.temperature}} | <strong>Humidity: </strong>{{lastSearch.humidity}} | <strong>Preciptiation: </strong>{{lastSearch.precipitation}}
+                                    <p class="weatherHistory"><strong>City: </strong>{{lastSearch.city}} | </strong> <strong>Temperature: </strong>{{lastSearch.temperature}} | <strong>Humidity: </strong>{{lastSearch.humidity}} | <strong>Preciptiation: </strong>{{lastSearch.precipitation}}
                                     </p>
 
                                 </div>
@@ -179,6 +179,7 @@
             data: loc
         }).done(function(data) {
             location.reload();
+            //$("#dest").prepend(lastSearch.city)
         });
     });
 
