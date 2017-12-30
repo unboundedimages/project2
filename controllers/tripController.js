@@ -34,20 +34,20 @@ router.get("/results", function(req, res) {
 });
 
 router.post("/api/newSearch", function(req, res) {
-    console.log("this is working(ish)");
+    console.log("Search 1");
     // reassign variable here
     axios({
         method: 'get',
-        url: 'https://api.wunderground.com/api/' + authKey + '/history_' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json'
+        url: 'https://api.wunderground.com/api/' + authKey + '/history_2000' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json'
     }).then(function(axiosResults) {
         console.log(axiosResults.data.history.observations[5].tempi);
         db.SearchLocation.create({
-            date: req.body.date,
             state: req.body.state,
             city: req.body.city,
-            precipitation: axiosResults.data.history.observations[10].rain,
-            temperature: axiosResults.data.history.observations[10].tempi,
-            humidity: axiosResults.data.history.observations[10].hum
+            date00: req.body.date,
+            precipitation00: axiosResults.data.history.observations[10].rain,
+            temperature00: axiosResults.data.history.observations[10].tempi,
+            humidity00: axiosResults.data.history.observations[10].hum
         }).then(function(databaseResult) {
             res.json(databaseResult);
         });
@@ -65,6 +65,24 @@ router.post("/api/newSearch", function(req, res) {
     //     });
     // });
 
+});
+
+router.post("/api/newSearch", function(req, res) {
+    console.log("Search 2");
+    axios({
+        method: 'get',
+        url: 'https://api.wunderground.com/api/' + authKey + '/history_2005' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json'
+    }).then(function(axiosResults) {
+        console.log(axiosResults.data.history.observations[5].tempi);
+        db.SearchLocation.create({
+            date05: req.body.date,
+            precipitation05: axiosResults.data.history.observations[10].rain,
+            temperature05: axiosResults.data.history.observations[10].tempi,
+            humidity05: axiosResults.data.history.observations[10].hum
+        }).then(function(databaseResult) {
+            res.json(databaseResult);
+        });
+    });
 });
 
 router.delete("/results/delete/:id", function(req, res) {

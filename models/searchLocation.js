@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var SearchLocation = sequelize.define("SearchLocation", {
-        date: {
+        date00: {
             type: DataTypes.INTEGER,
             allowNull: true,
             // validate: {
@@ -21,15 +21,28 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        precipitation: {
+        precipitation00: {
             type: DataTypes.STRING
         },
-        temperature: {
+        temperature00: {
             type: DataTypes.STRING
         },
-        humidity: {
+        humidity00: {
             type: DataTypes.STRING
         },
+        date05: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        precipitation05: {
+            type: DataTypes.STRING
+        },
+        temperature05: {
+            type: DataTypes.STRING
+        },
+        humidity05: {
+            type: DataTypes.STRING
+        }
         // image: {
         //     type: DataTypes.STRING
         // }
