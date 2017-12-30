@@ -8,16 +8,16 @@ var authKey = "c79c9c57fca6d026";
 
 //index handlebars, user log in
 // router.get('/', function(req, res) {
-            //     res.render("index");
-            // });
+//     res.render("index");
+// });
 
 // router.post("/api/userData", function(req, res) {
-            //     db.User.create([
-            //         "***"
-            //     ]).then(function(results) {
-            //         res.json(results);
-            //     });
-            // });
+//     db.User.create([
+//         "***"
+//     ]).then(function(results) {
+//         res.json(results);
+//     });
+// });
 
 //dashboard handlebars, city search
 router.get("/results", function(req, res) {
