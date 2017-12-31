@@ -31,26 +31,3 @@
 
 
 </div>
-
-<script type="text/javascript">
-    $("#logIn").on(".click", function() {
-
-        var userInfo = {
-            username: ("#username").val().trim(),
-            password: ("#password").val().trim()
-        };
-
-        // Send the POST request.
-        $.ajax("/signin", {
-            type: "POST",
-            data: userInfo
-        }).then(
-            function() {
-                console.log(userInfo);
-                console.log("user signed in");
-                window.location.href = "/dashboard";
-            }
-        );
-
-    });
-</script>

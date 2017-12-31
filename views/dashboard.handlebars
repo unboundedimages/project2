@@ -22,7 +22,7 @@
                 <span class="glyphicon glyphicon-search"></span>
                 <input type="text" class="form-control state" placeholder="State..." id="field" name="state">
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="date" class="form-control date" placeholder="Date..." id="field" name="YYYY/MM/DD">
+                <input type="text" class="form-control date" placeholder="Date..." id="field" name="date">
                 <button type="submit" class="btn btn-default submitButton">Submit</button>
             </form>
 
@@ -65,11 +65,11 @@
 
                     <div class="col-md-4" id="left">
                         <div class="row">
-                            <p class="destination" id="dest">{{lastSearch.city}} {{lastSearch.state}}
+                            <p class="destination">{{lastSearch.city}} {{lastSearch.state}}
                             </p>
                         </div>
                         <div class="row">
-                            <p class="image">Image {{lastSearch.image}}
+                            <p class="image"><img src="{{lastSearch.image}}" width="200" height="200">
                             </p>
                         </div>
                     </div>
@@ -80,6 +80,16 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <p>Current Weather</p>
+
+                                    <p class="currentWeather">
+
+                                        {{lastSearch.todayDate}}
+                                        <br>
+                                        <strong>High: </strong>{{lastSearch.todayHigh}} |
+                                        <strong>Low: </strong>{{lastSearch.todayLow}} |
+                                        <strong>Conditions: </strong>{{lastSearch.todayConds}}
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +97,27 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <p>Weather History</p>
-                                    <p class="weatherHistory"><strong>City: </strong>{{lastSearch.city}} | </strong> <strong>Temperature: </strong>{{lastSearch.temperature}} | <strong>Humidity: </strong>{{lastSearch.humidity}} | <strong>Preciptiation: </strong>{{lastSearch.precipitation}}
+                                    <p class="weatherHistory">
+
+
+                                        <strong>Year: </strong> 2005 |
+                                        <strong>Temperature: </strong>{{lastSearch.temp05}} |
+                                        <strong>Humidity: </strong>{{lastSearch.hum05}} |
+                                        <strong>Conditions: </strong>{{lastSearch.conds05}}
+
+                                        <br>
+
+                                        <strong>Year: </strong> 2010 |
+                                        <strong>Temperature: </strong>{{lastSearch.temp10}} |
+                                        <strong>Humidity: </strong>{{lastSearch.hum10}} |
+                                        <strong>Conditions: </strong>{{lastSearch.conds10}}
+
+                                        <br>
+
+                                        <strong>Year: </strong> 2015 |
+                                        <strong>Temperature: </strong>{{lastSearch.temp15}} |
+                                        <strong>Humidity: </strong>{{lastSearch.hum15}} |
+                                        <strong>Conditions: </strong>{{lastSearch.conds15}}
                                     </p>
 
                                 </div>
@@ -109,7 +139,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     Airbnb<br>
-                    <a href="https://www.airbnb.com/" target="_blank"><img src="/images/airbnb.png" class="air"></a>
+                    <a href="https://www.airbnb.com/" target="_blank"><img src="/images/airbnb.png" width="auto" height="120"></a>
                 </div>
             </div>
         </div>
@@ -118,7 +148,17 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     Hostelworld<br>
-                    <a href="https://www.hostelworld.com/" target="_blank"><img src="/images/hostelworld.png" class="air"></a>
+                    <a href="https://www.hostelworld.com/" target="_blank"><img src="/images/hostelworld.png" width="auto" height="120"></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    SkyScanner<br>
+                    <a href="https://www.skyscanner.com/" target="_blank"><img src="/images/skyscanner.png" width="auto" height="120"></a>
                 </div>
             </div>
         </div>
@@ -127,16 +167,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     Currency Converter<br>
-                    <a href="http://www.xe.com/currencyconverter/" target="_blank"><img src="/images/xe.png" class="air"></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-2">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    SkyScanner<br>
-                    <a href="https://www.skyscanner.com/" target="_blank"><img src="/images/skyscanner.png" class="air"></a>
+                    <a href="http://www.xe.com/currencyconverter/" target="_blank"><img src="/images/xe.png" width="auto" height="120"></a>
                 </div>
             </div>
         </div>
@@ -145,7 +176,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     TripAdvisor<br>
-                    <a href="https://www.tripadvisor.com/" target="_blank"><img src="/images/tripadvisor.jpg" class="air"></a>
+                    <a href="https://www.tripadvisor.com/" target="_blank"><img src="/images/tripadvisor.jpg" width="auto" height="120"></a>
                 </div>
             </div>
         </div>
@@ -154,7 +185,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     USA National Parks<br>
-                    <a href="https://www.nps.gov/findapark/index.htm" target="_blank"><img src="/images/nps.png" class="air"></a>
+                    <a href="https://www.nps.gov/findapark/index.htm" target="_blank"><img src="/images/nps.png" width="auto" height="120"></a>
                 </div>
             </div>
         </div>
@@ -179,7 +210,6 @@
             data: loc
         }).done(function(data) {
             location.reload();
-            //$("#dest").prepend(lastSearch.city)
         });
     });
 
