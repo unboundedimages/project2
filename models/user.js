@@ -1,6 +1,6 @@
 module.exports = function(sequelize, Sequelize) {
 
-    var User = sequelize.define('user', {
+    var user = sequelize.define('user', {
 
         id: {
             autoIncrement: true,
@@ -18,9 +18,9 @@ module.exports = function(sequelize, Sequelize) {
             notEmpty: true
         },
 
-        about: {
-            type: Sequelize.TEXT
-        },
+        // about: {
+        //     type: Sequelize.TEXT
+        // },
 
         email: {
             type: Sequelize.STRING,
@@ -45,7 +45,12 @@ module.exports = function(sequelize, Sequelize) {
 
 
     });
+    user.associate = function(models) {
+        user.hasMany(models.SearchLocation, {
+            onDelete: "cascade"
+        });
+    };
 
-    return User;
+    return user;
 
-}
+};
