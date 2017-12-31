@@ -64,5 +64,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING
         }
     });
+    SearchLocation.associate = function(models) {
+        SearchLocation.belongsTo(models.user, {
+            // foreignKey: {
+            //     allowNull: false
+            // }
+        });
+    };
     return SearchLocation;
 };
