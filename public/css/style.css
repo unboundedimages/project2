@@ -35,14 +35,7 @@
     text-align: center;
 }
 
-.weatherHistory {
+.weatherHistory,
+.currentWeather {
     text-align: center;
-}
-
-.air {
-    /*border: 3px red solid;*/
-    height: 120px;
-    width: auto px;
-    display: inline-block;
-    margin: 2px
 }
