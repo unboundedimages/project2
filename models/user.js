@@ -47,7 +47,8 @@ module.exports = function(sequelize, Sequelize) {
     });
     user.associate = function(models) {
         user.hasMany(models.SearchLocation, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            // foreignKey: 'SearchLocationId'
         });
     };
 
