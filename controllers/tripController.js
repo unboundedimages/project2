@@ -9,7 +9,11 @@ var authKey = "c79c9c57fca6d026";
 //Display dashboard page with results of search to client
 //=============================================
 router.get("/results", function(req, res) {
-    db.SearchLocation.findAll({}).then(function(data) {
+    db.SearchLocation.findAll({
+        where: {
+            userId: req.user.id
+        }
+    }).then(function(data) {
         console.log("DATA CONSOLE: " + data);
         var hbsObject = {
             searchHistory: data,
