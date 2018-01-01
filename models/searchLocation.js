@@ -66,9 +66,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     SearchLocation.associate = function(models) {
         SearchLocation.belongsTo(models.user, {
-            // foreignKey: {
-            //     allowNull: false
-            // }
+            // foreignKey: 'userId'
         });
     };
     return SearchLocation;
