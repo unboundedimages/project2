@@ -40,7 +40,7 @@ var authRoute = require('./routes/auth.js')(app, passport);
 require('./config/passport/passport.js')(passport, models.user);
 //////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
-models.sequelize.sync({ force: true }).then(function() {
+models.sequelize.sync({ force: false }).then(function() {
     console.log("Successful sync to tripPlanner database ------------");
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
