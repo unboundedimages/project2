@@ -68,7 +68,8 @@ router.post("/api/newSearch", function(req, res) {
                 todayDate: forecast.data.forecast.simpleforecast.forecastday[0].date.pretty,
                 todayHigh: forecast.data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
                 todayLow: forecast.data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
-                todayConds: forecast.data.forecast.simpleforecast.forecastday[0].conditions
+                todayConds: forecast.data.forecast.simpleforecast.forecastday[0].conditions,
+                userId: req.user.id
             }).then(function(databaseResult) {
                 res.json(databaseResult);
             });
