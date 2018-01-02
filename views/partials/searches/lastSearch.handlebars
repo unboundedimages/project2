@@ -7,7 +7,7 @@
 
             {{#each searchHistory}}
 
-            <p><a href="/results/priorsearch/:id" data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</a>
+            <p><a href="/results/priorsearch/{{this.id}}" data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</a>
                 <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton glyphicon glyphicon-trash"></button>
             </p>
 
@@ -111,4 +111,3 @@
         </div>
     </div>
 </div>
- 
