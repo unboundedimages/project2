@@ -1,6 +1,10 @@
+body {
+    background-image: url("/images/background.png");
+}
+
 #loginBox {
     text-align: center;
-    padding: 50px;
+    padding: 20px;
     margin-top: 20px;
 }
 
@@ -9,17 +13,43 @@
     margin: 10px;
 }
 
-.title {
-    margin-top: 80px;
+#title {
+    margin-top: 35px;
     text-align: center;
+    /*font-family: 'Arima Madurai', cursive;*/
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 55px;
 }
 
-#navbar {
-    height: 100px;
+.glyphicon-cloud {
+    font-size: 34px;
+}
+
+#loginImages {
+    margin-top: 20px;
+}
+
+.panel {
+    border-color: #3e42dd;
+}
+
+
+.glyphicon-search,
+.glyphicon-calendar {
+    color: #3e42dd;
+    margin-right: 3px;
 }
 
 .navbar {
+    height: 70px;
     padding: 7px;
+    border-bottom-color: #3e42dd;
+}
+
+.destination {
+    font-size: 32px;
+    font-family: 'Boogaloo', cursive;
+    color: #e45640;
 }
 
 #field {
@@ -28,14 +58,21 @@
 
 #left {
     text-align: center;
-
 }
 
 #adBox {
     text-align: center;
+    font-weight: bold;
 }
 
 .weatherHistory,
 .currentWeather {
     text-align: center;
+}
+
+.currentWeatherTitle,
+.weatherHistoryTitle {
+    font-size: 22px;
+    font-family: 'Boogaloo', cursive;
+    color: #3e42dd;
 }
