@@ -16,12 +16,25 @@ router.get("/results", function(req, res) {
     }).then(function(data) {
         console.log("DATA CONSOLE: " + data);
         var hbsObject = {
+            userName: req.user.firstname,
             searchHistory: data,
             lastSearch: data[data.length - 1]
         };
         console.log(hbsObject);
 
         res.render("dashboard", hbsObject);
+    });
+});
+//Allow user to flip back through prior searches
+//===============================================
+router.get("/results/priorsearch/:id", function(req, res) {
+    db.SearchLocation.findAll({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(results) {
+        console.log("Prior search:" + results);
+        // res.render("dashboard", hbsObject);
     });
 });
 

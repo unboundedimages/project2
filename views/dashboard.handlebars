@@ -37,17 +37,22 @@
 <!-- ====================== -->
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-6">
+            <h2>{{userName}}'s Trip Dashboard</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Search History</h3>
+                    <h4 class="panel-title">Search History</h3>
                 </div>
                 <div class="panel-body history">
 
                     {{#each searchHistory}}
 
-                        <p>{{this.city}}
-                            <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton">XXX</button>
+                        <p><button data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</button>
+                            <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton glyphicon glyphicon-trash"></button>
                         </p>
 
 
@@ -58,14 +63,14 @@
             </div>
         </div>
 
-        <div class="col-md-10">
+        <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-body">
 
 
                     <div class="col-md-4" id="left">
                         <div class="row">
-                            <p class="destination">{{lastSearch.city}} {{lastSearch.state}}
+                            <p class="destination">{{lastSearch.city}}, {{lastSearch.state}}
                             </p>
                         </div>
                         <div class="row">
@@ -213,6 +218,16 @@
         });
     });
 
+    $(document).on("click", ".searchButton", function() {
+        var id = $(this).data("searchid");
+        console.log("we are clicking");
+        $.ajax({
+            type: "GET",
+            url: "/results/priorsearch/" + id,
+        }).done(function() {
+            location.reload();
+        });
+    });
 
     $(document).on("click", ".deleteButton", function() {
         var id = $(this).data("deleteid");
