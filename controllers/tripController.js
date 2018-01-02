@@ -9,15 +9,32 @@ var authKey = "c79c9c57fca6d026";
 //Display dashboard page with results of search to client
 //=============================================
 router.get("/results", function(req, res) {
-    db.SearchLocation.findAll({}).then(function(data) {
+    db.SearchLocation.findAll({
+        where: {
+            userId: req.user.id
+        }
+    }).then(function(data) {
         console.log("DATA CONSOLE: " + data);
         var hbsObject = {
+            userName: req.user.firstname,
             searchHistory: data,
             lastSearch: data[data.length - 1]
         };
         console.log(hbsObject);
 
         res.render("dashboard", hbsObject);
+    });
+});
+//Allow user to flip back through prior searches
+//===============================================
+router.get("/results/priorsearch/:id", function(req, res) {
+    db.SearchLocation.findAll({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(results) {
+        console.log("Prior search:" + results);
+        // res.render("dashboard", hbsObject);
     });
 });
 
@@ -72,7 +89,8 @@ router.post("/api/newSearch", function(req, res) {
                 todayDate: forecast.data.forecast.simpleforecast.forecastday[0].date.pretty,
                 todayHigh: forecast.data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
                 todayLow: forecast.data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
-                todayConds: forecast.data.forecast.simpleforecast.forecastday[0].conditions
+                todayConds: forecast.data.forecast.simpleforecast.forecastday[0].conditions,
+                userId: req.user.id
             }).then(function(databaseResult) {
                 res.json(databaseResult);
             });
