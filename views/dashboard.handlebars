@@ -51,7 +51,7 @@
 
                     {{#each searchHistory}}
 
-                        <p>{{this.city}}
+                        <p><button data-searchid="{{this.id}}">{{this.city}}, {{this.state}}</button>
                             <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton glyphicon glyphicon-trash"></button>
                         </p>
 
@@ -218,6 +218,17 @@
         });
     });
 
+    // $(document).on("click", ".searchid", function() {
+    //     var id = $(this).data("searchid");
+    //     console.log("searchid");
+    //     console.log("we are clicking");
+    //     $.ajax({
+    //         type: "GET",
+    //         url: "/results/priorsearch/" + id,
+    //     }).done(function() {
+    //         location.reload();
+    //     });
+    // });
 
     $(document).on("click", ".deleteButton", function() {
         var id = $(this).data("deleteid");
