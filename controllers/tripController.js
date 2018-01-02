@@ -27,15 +27,16 @@ router.get("/results", function(req, res) {
 });
 //Allow user to flip back through prior searches
 //===============================================
-// router.get("/results/priorsearch/:id", function(req, res) {
-//     db.SearchLocation.findOne({
-//         where: {
-//             id: req.params.id
-//         }
-//     }).then(function(results) {
-//         res.json(results);
-//     });
-// });
+router.get("/results/priorsearch/:id", function(req, res) {
+    db.SearchLocation.findAll({
+        where: {
+            id: req.params.id
+        }
+    }).then(function(results) {
+        console.log("Prior search:" + results);
+        // res.render("dashboard", hbsObject);
+    });
+});
 
 
 //Post results of search to server
