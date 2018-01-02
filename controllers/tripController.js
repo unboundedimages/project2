@@ -18,6 +18,7 @@ router.get("/results", function(req, res) {
         }
     }).then(function(data) {
         console.log("DATA CONSOLE: " + data);
+
         var hbsObject = {
             userName: req.user.firstname,
             searchHistory: data,
@@ -41,9 +42,10 @@ router.get("/results/priorsearch/:id", function(req, res) {
         var hbsObject = {
             userName: req.user.firstname,
             searchHistory: data,
-            thisSearch: data
+            lastSearch: data[0]
         };
         console.log(hbsObject);
+        // res.json here; in client side, set data in local storage (stringify)
         res.render("dashboard", hbsObject);
     });
 });

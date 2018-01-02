@@ -1,0 +1,109 @@
+<div class="col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">Search History</h3>
+        </div>
+        <div class="panel-body history">
+
+            {{#each searchHistory}}
+
+            <p><a href="/results/priorsearch/{{this.id}}" data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</a>
+                <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton glyphicon glyphicon-trash"></button>
+            </p>
+
+
+            {{/each}}
+
+
+        </div>
+    </div>
+</div>
+
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-4" id="left">
+                <div class="row">
+                    <p class="destination">{{lastSearch.city}}, {{lastSearch.state}}
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="image"><img src="{{lastSearch.image}}" width="200" height="200">
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-md-8" id="right">
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p class="currentWeatherTitle">Current Weather</p>
+
+                            <p class="currentWeather">
+
+                                {{lastSearch.todayDate}}
+                                <br>
+                                <strong>High: </strong>{{lastSearch.todayHigh}} |
+                                <strong>Low: </strong>{{lastSearch.todayLow}} |
+                                <strong>Conditions: </strong>{{lastSearch.todayConds}}
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p class="weatherHistoryTitle">Weather History</p>
+                            <p class="weatherHistory">
+                            </p>
+
+                            <table class="table">
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Month</th>
+                                    <th>Day</th>
+                                    <th>High Temp</th>
+                                    <th>Low Temp</th>
+                                    <th>Humidity</th>
+                                    <th>Conditions</th>
+                                </tr>
+                                <tr>
+                                    <td>2005</td>
+                                    <td>{{lastSearch.monthFormat}}</td>
+                                    <td>{{lastSearch.dayFormat}}</td>
+                                    <td>{{lastSearch.highTemp05}}</td>
+                                    <td>{{lastSearch.lowTemp05}}</td>
+                                    <td>{{lastSearch.hum05}}</td>
+                                    <td>{{lastSearch.conds05}}</td>
+                                </tr>
+                                <tr>
+                                    <td>2010</td>
+                                    <td>{{lastSearch.monthFormat}}</td>
+                                    <td>{{lastSearch.dayFormat}}</td>
+                                    <td>{{lastSearch.highTemp10}}</td>
+                                    <td>{{lastSearch.lowTemp10}}</td>
+                                    <td>{{lastSearch.hum10}}</td>
+                                    <td>{{lastSearch.conds10}}</td>
+                                </tr>
+                                <tr>
+                                    <td>2015</td>
+                                    <td>{{lastSearch.monthFormat}}</td>
+                                    <td>{{lastSearch.dayFormat}}</td>
+                                    <td>{{lastSearch.highTemp15}}</td>
+                                    <td>{{lastSearch.lowTemp15}}</td>
+                                    <td>{{lastSearch.hum15}}</td>
+                                    <td>{{lastSearch.conds15}}</td>
+                                </tr>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
