@@ -25,6 +25,7 @@ router.get("/results", function(req, res) {
         res.render("dashboard", hbsObject);
     });
 });
+
 //Allow user to flip back through prior searches
 //===============================================
 router.get("/results/priorsearch/:id", function(req, res) {
