@@ -70,19 +70,24 @@ router.post("/api/newSearch", function(req, res) {
         .then(axios.spread(function(year2005, year2010, year2015, image, forecast) {
 
             console.log("***************************")
-            console.log("%0", year2005.data.history.observations[10])
+            console.log("%0", year2005.data.history.dailysummary)
             console.log("***************************")
 
             db.SearchLocation.create({
                 date: req.body.date,
                 state: req.body.state,
                 city: req.body.city,
+                monthFormat: year2005.data.history.observations[10].date.mon,
+                dayFormat: year2005.data.history.observations[10].date.mday,
                 conds05: year2005.data.history.observations[10].conds,
                 conds10: year2010.data.history.observations[10].conds,
                 conds15: year2015.data.history.observations[10].conds,
-                temp05: year2005.data.history.observations[10].tempi,
-                temp10: year2010.data.history.observations[10].tempi,
-                temp15: year2015.data.history.observations[10].tempi,
+                highTemp05: year2005.data.history.dailysummary.maxtempi,
+                lowTemp05: year2005.data.history.dailysummary.mintempi,
+                highTemp10: year2010.data.history.dailysummary.maxtempi,
+                lowTemp10: year2010.data.history.dailysummary.mintempi,
+                highTemp15: year2015.data.history.dailysummary.maxtempi,
+                lowTemp15: year2015.data.history.dailysummary.mintempi,
                 hum05: year2005.data.history.observations[10].hum,
                 hum10: year2010.data.history.observations[10].hum,
                 hum15: year2015.data.history.observations[10].hum,

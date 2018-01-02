@@ -24,7 +24,10 @@ module.exports = function(sequelize, DataTypes) {
         conds05: {
             type: DataTypes.STRING
         },
-        temp05: {
+        highTemp05: {
+            type: DataTypes.STRING
+        },
+        lowTemp05: {
             type: DataTypes.STRING
         },
         hum05: {
@@ -33,7 +36,10 @@ module.exports = function(sequelize, DataTypes) {
         conds10: {
             type: DataTypes.STRING
         },
-        temp10: {
+        highTemp10: {
+            type: DataTypes.STRING
+        },
+        lowTemp10: {
             type: DataTypes.STRING
         },
         hum10: {
@@ -42,7 +48,10 @@ module.exports = function(sequelize, DataTypes) {
         conds15: {
             type: DataTypes.STRING
         },
-        temp15: {
+        highTemp15: {
+            type: DataTypes.STRING
+        },
+        lowTemp15: {
             type: DataTypes.STRING
         },
         hum15: {
@@ -61,6 +70,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         todayConds: {
+            type: DataTypes.STRING
+        },
+        monthFormat: {
+            type: DataTypes.STRING
+        },
+        dayFormat: {
             type: DataTypes.STRING
         }
     });
