@@ -2,6 +2,26 @@ body {
     background-image: url("/images/background.png");
 }
 
+#tester {
+    position: relative;
+    height: 250px;
+}
+
+#searchbar {
+    position: absolute;
+    bottom: -15%;
+    height: 70px;
+    padding: 7px;
+    width: 100%;
+    margin-left: -15px;
+}
+
+#colmd8 {
+    height: 100%;
+    bottom: 350px;
+    margin-bottom: -350px;
+}
+
 #loginBox {
     text-align: center;
     padding: 20px;
@@ -31,20 +51,14 @@ body {
 }
 
 .panel {
-    border-color: #3e42dd;
+    border-color: #3b94b6;
 }
 
 
 .glyphicon-search,
 .glyphicon-calendar {
-    color: #3e42dd;
+    color: black;
     margin-right: 3px;
-}
-
-.navbar {
-    height: 70px;
-    padding: 7px;
-    border-bottom-color: #3e42dd;
 }
 
 .destination {
@@ -57,7 +71,8 @@ body {
     margin-right: 10px;
 }
 
-#left {
+#left,
+#right {
     text-align: center;
 }
 
@@ -76,4 +91,13 @@ body {
     font-size: 22px;
     font-family: 'Boogaloo', cursive;
     color: #3e42dd;
+    text-align: left;
+}
+
+.searchButton {
+    color: black;
+}
+
+.deleteButton {
+    float: right;
 }

@@ -1,40 +1,54 @@
 <!-- NAVIGATION BAR -->
 <!-- ====================== -->
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        </div>
+<div class="row" id="tester">
+    <img src="/images/mountainlake6.jpg" width="100%" height="250px">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-            <form class="navbar-form navbar-left" id="tripForm">
-                <span class="glyphicon glyphicon-search" id="dashglyph"></span>
-                <input type="text" class="form-control city" placeholder="City..." id="field" name="city">
+    <div class="col-md-10 col-md-offset-1" id="colmd8">
 
-                <span class="glyphicon glyphicon-search"></span>
-                <input type="text" class="form-control state" placeholder="State..." id="field" name="state">
+        <nav class="navbar navbar-default" id="searchbar">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                </div>
 
-                <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control date" placeholder="Date... MMDD" id="field" name="date">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                <button type="submit" class="btn btn-default submitButton">Submit</button>
-            </form>
+                    <form class="navbar-form navbar-left" id="tripForm">
+                        <span class="glyphicon glyphicon-search" id="dashglyph"></span>
+                        <input type="text" class="form-control city" placeholder="City..." id="field" name="city">
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/logout">Log Out</a></li>
-            </ul>
-        </div>
+                        <span class="glyphicon glyphicon-search"></span>
+                        <input type="text" class="form-control state" placeholder="State... XX" id="field" name="state">
+
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <input type="text" class="form-control date" placeholder="Date... MMDD" id="field" name="date">
+
+                        <button type="submit" class="btn btn-default submitButton">Submit</button>
+                    </form>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
     </div>
-</nav>
+
+</div>
+
+
+
 
 <!-- FIRST ROW -->
 <!-- ====================== -->
@@ -110,6 +124,9 @@
     </div>
 
 </div>
+
+
+
 
 <script type="text/javascript">
     $(document).on("submit", "#tripForm", function(event) {
