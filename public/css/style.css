@@ -2,12 +2,18 @@ body {
     background-image: url("/images/background.png");
 }
 
-#tester {
+#navimg {
     position: relative;
     height: 250px;
 }
 
-#searchbar {
+#searchBox {
+    height: 100%;
+    bottom: 350px;
+    margin-bottom: -350px;
+}
+
+.navbar {
     position: absolute;
     bottom: -15%;
     height: 70px;
@@ -16,10 +22,8 @@ body {
     margin-left: -15px;
 }
 
-#colmd8 {
-    height: 100%;
-    bottom: 350px;
-    margin-bottom: -350px;
+#field {
+    margin-right: 10px;
 }
 
 #loginBox {
@@ -36,7 +40,6 @@ body {
 #title {
     margin-top: 35px;
     text-align: center;
-    /*font-family: 'Arima Madurai', cursive;*/
     font-family: 'Cabin Sketch', cursive;
     font-size: 55px;
 }
@@ -51,24 +54,21 @@ body {
 }
 
 .panel {
-    border-color: #3b94b6;
+    border-color: #0093a0;
 }
 
 
 .glyphicon-search,
 .glyphicon-calendar {
-    color: black;
+    color: #2c7977;
     margin-right: 3px;
 }
 
 .destination {
     font-size: 32px;
-    font-family: 'Boogaloo', cursive;
-    color: #e45640;
-}
-
-#field {
-    margin-right: 10px;
+    font-family: 'Arima Madurai', cursive;
+    color: #0093a0;
+    font-weight: bold;
 }
 
 #left,
@@ -81,17 +81,18 @@ body {
     font-weight: bold;
 }
 
-.weatherHistory,
-.currentWeather {
+.currentWeather,
+.weatherHistory {
     text-align: center;
 }
 
 .currentWeatherTitle,
 .weatherHistoryTitle {
     font-size: 22px;
-    font-family: 'Boogaloo', cursive;
-    color: #3e42dd;
+    font-family: 'Arima Madurai', cursive;
+    color: #0074e0;
     text-align: left;
+    font-weight: bold;
 }
 
 .searchButton {
@@ -100,4 +101,10 @@ body {
 
 .deleteButton {
     float: right;
+}
+
+#welcomeUser {
+    font-family: 'Arima Madurai', cursive;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

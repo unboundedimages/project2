@@ -1,5 +1,9 @@
 <body class="dashbody">
 
+
+
+    <!-- SEARCH HISTORY COLUMN -->
+    <!-- ====================== -->
     <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -13,19 +17,22 @@
                     <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton glyphicon glyphicon-trash"></button>
                 </p>
 
-
                 {{/each}}
-
 
             </div>
         </div>
     </div>
 
+
+    <!-- WEATHER DATA COLUMN -->
+    <!-- ====================== -->
     <div class="col-md-9">
         <div class="panel panel-default">
             <div class="panel-body">
 
 
+                <!-- DESTINATION & IMAGE -->
+                <!-- ====================== -->
                 <div class="col-md-4" id="left">
                     <div class="row">
                         <p class="destination">{{lastSearch.city}}, {{lastSearch.state}}
@@ -38,6 +45,8 @@
                 </div>
 
 
+                <!-- CURRENT WEATHER & WEATHER HISTORY -->
+                <!-- ====================== -->
                 <div class="col-md-8" id="right">
                     <div class="row">
                         <div class="panel panel-default">
