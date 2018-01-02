@@ -1,0 +1,81 @@
+<div class="col-md-4" id="left">
+    <div class="row">
+        <p class="destination">{{thisSearch.city}}, {{thisSearch.state}}
+        </p>
+    </div>
+    <div class="row">
+        <p class="image"><img src="{{thisSearch.image}}" width="200" height="200">
+        </p>
+    </div>
+</div>
+
+
+<div class="col-md-8" id="right">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p class="currentWeatherTitle">Current Weather</p>
+
+                <p class="currentWeather">
+
+                    {{thisSearch.todayDate}}
+                    <br>
+                    <strong>High: </strong>{{thisSearch.todayHigh}} |
+                    <strong>Low: </strong>{{thisSearch.todayLow}} |
+                    <strong>Conditions: </strong>{{thisSearch.todayConds}}
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p class="weatherHistoryTitle">Weather History</p>
+                <p class="weatherHistory">
+                </p>
+
+                <table class="table">
+                    <tr>
+                        <th>Year</th>
+                        <th>Month</th>
+                        <th>Day</th>
+                        <th>High Temp</th>
+                        <th>Low Temp</th>
+                        <th>Humidity</th>
+                        <th>Conditions</th>
+                    </tr>
+                    <tr>
+                        <td>2005</td>
+                        <td>{{thisSearch.monthFormat}}</td>
+                        <td>{{thisSearch.dayFormat}}</td>
+                        <td>{{thisSearch.highTemp05}}</td>
+                        <td>{{thisSearch.lowTemp05}}</td>
+                        <td>{{thisSearch.hum05}}</td>
+                        <td>{{thisSearch.conds05}}</td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>{{thisSearch.monthFormat}}</td>
+                        <td>{{thisSearch.dayFormat}}</td>
+                        <td>{{thisSearch.highTemp10}}</td>
+                        <td>{{thisSearch.lowTemp10}}</td>
+                        <td>{{thisSearch.hum10}}</td>
+                        <td>{{thisSearch.conds10}}</td>
+                    </tr>
+                    <tr>
+                        <td>2015</td>
+                        <td>{{thisSearch.monthFormat}}</td>
+                        <td>{{thisSearch.dayFormat}}</td>
+                        <td>{{thisSearch.highTemp15}}</td>
+                        <td>{{thisSearch.lowTemp15}}</td>
+                        <td>{{thisSearch.hum15}}</td>
+                        <td>{{thisSearch.conds15}}</td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>

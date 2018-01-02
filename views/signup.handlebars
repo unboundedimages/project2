@@ -19,26 +19,26 @@
                 <div class="panel-body">
 
 
-                    <form id="signup" name="signup" method="post" action="signup">
-
-                        <label for="email">Email Address:</label>
-                        <input class="form-control" aria-describedby="basic-addon1" name="email" type="email" data-error="Please enter a valid id" required>
-
+                    <form id="signup" name="signup" method="post" action="signup" ata-toggle="validator" role="form">
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input class="form-control" aria-describedby="basic-addon1" id="email" name="email" type="email" data-error="Please enter a valid email" required>
+                        </div>
                         <br>
-
-                        <label for="firstname">First Name:</label>
-                        <input name="firstname" type="text" class="form-control" aria-describedby="basic-addon1" required>
-
+                        <div class="form-group">
+                            <label for="firstname">First Name:</label>
+                            <input name="firstname" type="text" id="firstname" class="form-control" aria-describedby="basic-addon1" required>
+                        </div>
                         <br>
-
-                        <label for="lastname">Last Name:</label>
-                        <input name="lastname" type="text" class="form-control" aria-describedby="basic-addon1" required>
-
+                        <div class="form-group">
+                            <label for="lastname">Last Name:</label>
+                            <input name="lastname" type="text" id="lastname" class="form-control" aria-describedby="basic-addon1" required>
+                        </div>
 
                         <br>
 
                         <label for="password">Password:</label>
-                        <input name="password" type="password" class="form-control" aria-describedby="basic-addon1" id="password1" required>
+                        <input name="password" type="password" id="password" class="form-control" pattern=".{6,}" title="Password needs to be a minimum of 6 characters" aria-describedby="basic-addon1" id="password1" required>
                         <br>
 
 
@@ -58,8 +58,10 @@
 
     <div class="col-md-2"></div>
 
-
-
-
+    <script>
+        $(document).ready(function() {
+            $('form').validate();
+        });
+    </script>
 
 </div>
