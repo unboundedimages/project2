@@ -21,7 +21,8 @@ body {
     font-size: 55px;
 }
 
-.glyphicon-cloud {
+.glyphicon-cloud,
+.glyphicon-flash {
     font-size: 34px;
 }
 

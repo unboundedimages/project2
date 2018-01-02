@@ -7,7 +7,7 @@
 
             {{#each searchHistory}}
 
-            <p><a href="/results/priorsearch/{{this.id}}" data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</a>
+            <p><a href="/results/priorsearch/:id" data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</a>
                 <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton glyphicon glyphicon-trash"></button>
             </p>
 
@@ -22,6 +22,8 @@
 <div class="col-md-9">
     <div class="panel panel-default">
         <div class="panel-body">
+
+
             <div class="col-md-4" id="left">
                 <div class="row">
                     <p class="destination">{{lastSearch.city}}, {{lastSearch.state}}
@@ -57,6 +59,7 @@
                         <div class="panel-body">
                             <p class="weatherHistoryTitle">Weather History</p>
                             <p class="weatherHistory">
+
                             </p>
 
                             <table class="table">
@@ -104,6 +107,8 @@
                 </div>
             </div>
 
+
         </div>
     </div>
 </div>
+ 
