@@ -24,20 +24,7 @@
                 <input type="text" class="form-control state" placeholder="State..." id="field" name="state">
 
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control date" placeholder="Date... MMDD" id="field" name="date">{{!--<select class="form-control date" id="field" name="date">--}}
-                {{!--                <option value="01">January</option>--}}
-                {{!--                <option value="02">February</option>--}}
-                {{!--                <option value="03">March</option>--}}
-                {{!--                <option value="04">April</option>--}}
-                {{!--                <option value="05">May</option>--}}
-                {{!--                <option value="06">June</option>--}}
-                {{!--                <option value="07">July</option>--}}
-                {{!--                <option value="08">August</option>--}}
-                {{!--                <option value="09">September</option>--}}
-                {{!--                <option value="10">October</option>--}}
-                {{!--                <option value="11">November</option>--}}
-                {{!--                <option value="12">December</option>--}}
-                {{!--            </select>--}}
+                <input type="text" class="form-control date" placeholder="Date... MMDD" id="field" name="date">
 
                 <button type="submit" class="btn btn-default submitButton">Submit</button>
             </form>
@@ -67,7 +54,7 @@
 
                     {{#each searchHistory}}
 
-                        <p><button data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</button>
+                        <p><a href="/results/priorsearch/:id" data-searchid="{{this.id}}" class="searchButton">{{this.city}}, {{this.state}}</a>
                             <button data-deleteid="{{this.id}}" class="btn btn-sm deleteButton glyphicon glyphicon-trash"></button>
                         </p>
 
@@ -119,24 +106,7 @@
                                 <div class="panel-body">
                                     <p class="weatherHistoryTitle">Weather History</p>
                                     <p class="weatherHistory">
-                                        {{!--<strong>Year: </strong> 2005 |--}}
-                                        {{!--<strong>Temperature: </strong>{{lastSearch.temp05}} |--}}
-                                        {{!--<strong>Humidity: </strong>{{lastSearch.hum05}} |--}}
-                                        {{!--<strong>Conditions: </strong>{{lastSearch.conds05}}--}}
 
-                                        {{!--<br>--}}
-
-                                        {{!--<strong>Year: </strong> 2010 |--}}
-                                        {{!--<strong>Temperature: </strong>{{lastSearch.temp10}} |--}}
-                                        {{!--<strong>Humidity: </strong>{{lastSearch.hum10}} |--}}
-                                        {{!--<strong>Conditions: </strong>{{lastSearch.conds10}}--}}
-
-                                        {{!--<br>--}}
-
-                                        {{!--<strong>Year: </strong> 2015 |--}}
-                                        {{!--<strong>Temperature: </strong>{{lastSearch.temp15}} |--}}
-                                        {{!--<strong>Humidity: </strong>{{lastSearch.hum15}} |--}}
-                                        {{!--<strong>Conditions: </strong>{{lastSearch.conds15}}--}}
                                     </p>
 
                                     <table class="table">
