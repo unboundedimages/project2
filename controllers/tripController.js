@@ -28,15 +28,15 @@ router.post("/api/newSearch", function(req, res) {
     console.log(req.body.date);
 
     function getYear2005() {
-        return axios.get('https://api.wunderground.com/api/' + authKey + '/history_2005' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json');
+        return axios.get('https://api.wunderground.com/api/' + authKey + '/history_2005' + req.body.date + '15/q/' + req.body.state + '/' + req.body.city + '.json');
     }
 
     function getYear2010() {
-        return axios.get('https://api.wunderground.com/api/' + authKey + '/history_2010' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json');
+        return axios.get('https://api.wunderground.com/api/' + authKey + '/history_2010' + req.body.date + '15/q/' + req.body.state + '/' + req.body.city + '.json');
     }
 
     function getYear2015() {
-        return axios.get('https://api.wunderground.com/api/' + authKey + '/history_2015' + req.body.date + '/q/' + req.body.state + '/' + req.body.city + '.json');
+        return axios.get('https://api.wunderground.com/api/' + authKey + '/history_2015' + req.body.date + '15/q/' + req.body.state + '/' + req.body.city + '.json');
     }
 
     function getImage() {
@@ -50,6 +50,10 @@ router.post("/api/newSearch", function(req, res) {
 
     axios.all([getYear2005(), getYear2010(), getYear2015(), getImage(), getForecast()])
         .then(axios.spread(function(year2005, year2010, year2015, image, forecast) {
+
+            console.log("***************************")
+            console.log("%0", year2005.data.history.observations[10])
+            console.log("***************************")
 
             db.SearchLocation.create({
                 date: req.body.date,
