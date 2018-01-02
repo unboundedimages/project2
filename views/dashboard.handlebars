@@ -59,7 +59,8 @@
     <!-- SECOND ROW -->
     <!-- ====================== -->
     <div class="row">
-        {{>searches/lastSearch lastSearch=lastSearch}}
+        {{#if lastSearch}} {{>searches/lastSearch lastSearch=lastSearch}}
+        {{/if}}
     </div>
 
 
