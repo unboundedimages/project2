@@ -17,12 +17,28 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <form class="navbar-form navbar-left" id="tripForm">
-                <span class="glyphicon glyphicon-search"></span>
+                <span class="glyphicon glyphicon-search" id="dashglyph"></span>
                 <input type="text" class="form-control city" placeholder="City..." id="field" name="city">
+
                 <span class="glyphicon glyphicon-search"></span>
                 <input type="text" class="form-control state" placeholder="State..." id="field" name="state">
+
                 <span class="glyphicon glyphicon-calendar"></span>
-                <input type="text" class="form-control date" placeholder="Date..." id="field" name="date">
+                <input type="text" class="form-control date" placeholder="Date... MMDD" id="field" name="date">{{!--<select class="form-control date" id="field" name="date">--}}
+                {{!--                <option value="01">January</option>--}}
+                {{!--                <option value="02">February</option>--}}
+                {{!--                <option value="03">March</option>--}}
+                {{!--                <option value="04">April</option>--}}
+                {{!--                <option value="05">May</option>--}}
+                {{!--                <option value="06">June</option>--}}
+                {{!--                <option value="07">July</option>--}}
+                {{!--                <option value="08">August</option>--}}
+                {{!--                <option value="09">September</option>--}}
+                {{!--                <option value="10">October</option>--}}
+                {{!--                <option value="11">November</option>--}}
+                {{!--                <option value="12">December</option>--}}
+                {{!--            </select>--}}
+
                 <button type="submit" class="btn btn-default submitButton">Submit</button>
             </form>
 
@@ -84,7 +100,7 @@
                         <div class="row">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <p>Current Weather</p>
+                                    <p class="currentWeatherTitle">Current Weather</p>
 
                                     <p class="currentWeather">
 
@@ -101,29 +117,67 @@
                         <div class="row">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <p>Weather History</p>
+                                    <p class="weatherHistoryTitle">Weather History</p>
                                     <p class="weatherHistory">
+                                        {{!--<strong>Year: </strong> 2005 |--}}
+                                        {{!--<strong>Temperature: </strong>{{lastSearch.temp05}} |--}}
+                                        {{!--<strong>Humidity: </strong>{{lastSearch.hum05}} |--}}
+                                        {{!--<strong>Conditions: </strong>{{lastSearch.conds05}}--}}
 
+                                        {{!--<br>--}}
 
-                                        <strong>Year: </strong> 2005 |
-                                        <strong>Temperature: </strong>{{lastSearch.temp05}} |
-                                        <strong>Humidity: </strong>{{lastSearch.hum05}} |
-                                        <strong>Conditions: </strong>{{lastSearch.conds05}}
+                                        {{!--<strong>Year: </strong> 2010 |--}}
+                                        {{!--<strong>Temperature: </strong>{{lastSearch.temp10}} |--}}
+                                        {{!--<strong>Humidity: </strong>{{lastSearch.hum10}} |--}}
+                                        {{!--<strong>Conditions: </strong>{{lastSearch.conds10}}--}}
 
-                                        <br>
+                                        {{!--<br>--}}
 
-                                        <strong>Year: </strong> 2010 |
-                                        <strong>Temperature: </strong>{{lastSearch.temp10}} |
-                                        <strong>Humidity: </strong>{{lastSearch.hum10}} |
-                                        <strong>Conditions: </strong>{{lastSearch.conds10}}
-
-                                        <br>
-
-                                        <strong>Year: </strong> 2015 |
-                                        <strong>Temperature: </strong>{{lastSearch.temp15}} |
-                                        <strong>Humidity: </strong>{{lastSearch.hum15}} |
-                                        <strong>Conditions: </strong>{{lastSearch.conds15}}
+                                        {{!--<strong>Year: </strong> 2015 |--}}
+                                        {{!--<strong>Temperature: </strong>{{lastSearch.temp15}} |--}}
+                                        {{!--<strong>Humidity: </strong>{{lastSearch.hum15}} |--}}
+                                        {{!--<strong>Conditions: </strong>{{lastSearch.conds15}}--}}
                                     </p>
+
+                                    <table class="table">
+                                        <tr>
+                                            <th>Year</th>
+                                            <th>Month</th>
+                                            <th>Day</th>
+                                            <th>High Temp</th>
+                                            <th>Low Temp</th>
+                                            <th>Humidity</th>
+                                            <th>Conditions</th>
+                                        </tr>
+                                        <tr>
+                                            <td>2005</td>
+                                            <td>{{lastSearch.monthFormat}}</td>
+                                            <td>{{lastSearch.dayFormat}}</td>
+                                            <td>{{lastSearch.highTemp05}}</td>
+                                            <td>{{lastSearch.lowTemp05}}</td>
+                                            <td>{{lastSearch.hum05}}</td>
+                                            <td>{{lastSearch.conds05}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2010</td>
+                                            <td>{{lastSearch.monthFormat}}</td>
+                                            <td>{{lastSearch.dayFormat}}</td>
+                                            <td>{{lastSearch.highTemp10}}</td>
+                                            <td>{{lastSearch.lowTemp10}}</td>
+                                            <td>{{lastSearch.hum10}}</td>
+                                            <td>{{lastSearch.conds10}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2015</td>
+                                            <td>{{lastSearch.monthFormat}}</td>
+                                            <td>{{lastSearch.dayFormat}}</td>
+                                            <td>{{lastSearch.highTemp15}}</td>
+                                            <td>{{lastSearch.lowTemp15}}</td>
+                                            <td>{{lastSearch.hum15}}</td>
+                                            <td>{{lastSearch.conds15}}</td>
+                                        </tr>
+                                    </table>
+
 
                                 </div>
                             </div>
