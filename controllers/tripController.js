@@ -32,9 +32,15 @@ router.get("/results/priorsearch/:id", function(req, res) {
         where: {
             id: req.params.id
         }
-    }).then(function(results) {
-        console.log("Prior search:" + results);
-        // res.render("dashboard", hbsObject);
+    }).then(function(data) {
+        console.log("Prior search:" + data);
+        var hbsObject = {
+            userName: req.user.firstname,
+            searchHistory: data,
+            thisSearch: data
+        };
+        console.log(hbsObject);
+        res.render("dashboard", hbsObject);
     });
 });
 
