@@ -35,17 +35,26 @@ router.get("/results", function(req, res) {
 router.get("/results/priorsearch/:id", function(req, res) {
     db.SearchLocation.findAll({
         where: {
-            id: req.params.id
+            userId: req.user.id
         }
     }).then(function(data) {
-        console.log("Prior search:" + data);
-        var hbsObject = {
-            userName: req.user.firstname,
-            searchHistory: data,
-            lastSearch: data[0]
-        };
-        console.log(hbsObject);
-        // res.json here; in client side, set data in local storage (stringify)
+        for (var i = 0; i < data.length; i++) {
+            console.log("req.param " + req.params.id);
+            console.log("data test1: " + data[i].dataValues.id);
+            var selectedId = data[i].dataValues.id;
+            if (selectedId == req.params.id) {
+                var searchResult = data[i];
+                console.log("this is equal");
+                console.log("This is the result: " + searchResult);
+            }
+            // console.log("Prior search:" + "0%", data);
+            var hbsObject = {
+                userName: req.user.firstname,
+                searchHistory: data,
+                lastSearch: searchResult
+            };
+        }
+        // console.log(hbsObject);
         res.render("dashboard", hbsObject);
     });
 });
