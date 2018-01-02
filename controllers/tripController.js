@@ -16,6 +16,7 @@ router.get("/results", function(req, res) {
     }).then(function(data) {
         console.log("DATA CONSOLE: " + data);
         var hbsObject = {
+            userName: req.user.firstname,
             searchHistory: data,
             lastSearch: data[data.length - 1]
         };
