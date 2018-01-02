@@ -222,7 +222,7 @@
         var id = $(this).data("searchid");
         console.log("we are clicking");
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/results/priorsearch/" + id,
         }).done(function() {
             location.reload();
