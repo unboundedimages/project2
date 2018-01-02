@@ -9,6 +9,9 @@ var authKey = "c79c9c57fca6d026";
 //Display dashboard page with results of search to client
 //=============================================
 router.get("/results", function(req, res) {
+    if (!req.user) {
+        res.redirect("/signin")
+    }
     db.SearchLocation.findAll({
         where: {
             userId: req.user.id
