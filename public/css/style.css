@@ -51,6 +51,19 @@ body {
 
 #loginImages {
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    -webkit-column-width: 100%;
+    /* Chrome, Safari, Opera */
+    -moz-column-width: 100%;
+    /* Firefox */
+    column-width: 100%;
+}
+
+.pic {
+    height: auto;
+    width: 23%;
 }
 
 .panel {
