@@ -64,6 +64,7 @@ router.get("/results/priorsearch/:id", function(req, res) {
     });
 });
 
+
 //Get results of search to server in json format
 //=============================================
 router.get("/api/newSearch", function(req, res) {
