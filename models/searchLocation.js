@@ -2,17 +2,11 @@ module.exports = function(sequelize, DataTypes) {
     var SearchLocation = sequelize.define("SearchLocation", {
         date: {
             type: DataTypes.INTEGER,
-            allowNull: true,
-            // validate: {
-            //     len: [8]
-            // }
+            allowNull: true
         },
         state: {
             type: DataTypes.STRING,
-            allowNull: true,
-            // validate: {
-            //     len: [2]
-            // }
+            allowNull: true
         },
         city: {
             type: DataTypes.STRING,
@@ -80,9 +74,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     SearchLocation.associate = function(models) {
-        SearchLocation.belongsTo(models.user, {
-            // foreignKey: 'userId'
-        });
+        SearchLocation.belongsTo(models.user);
     };
     return SearchLocation;
 };
