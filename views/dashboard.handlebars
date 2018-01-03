@@ -145,7 +145,15 @@
             url: "/api/newSearch",
             data: loc
         }).done(function(data) {
-            location.reload();
+            console.log(location.pathname);
+            
+            if (location.pathname !== "/results") {
+                location.href = "/results";
+            }
+            else {
+                location.reload();
+            }
+        });
         });
     });
 
