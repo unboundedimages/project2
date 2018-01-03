@@ -10,7 +10,7 @@ var authKey = "c79c9c57fca6d026";
 //=============================================
 router.get("/results", function(req, res) {
     if (!req.user) {
-        res.redirect("/signin")
+        res.redirect("/signin");
     }
     db.SearchLocation.findAll({
         where: {
@@ -38,6 +38,12 @@ router.get("/results/priorsearch/:id", function(req, res) {
             userId: req.user.id
         }
     }).then(function(data) {
+        var hbsObject = {
+            userName: req.user.firstname,
+            searchHistory: data,
+            lastSearch: data[data.length - 1]
+        };
+        console.log("most recent search: " + hbsObject);
         for (var i = 0; i < data.length; i++) {
             console.log("req.param " + req.params.id);
             console.log("data test1: " + data[i].dataValues.id);
@@ -46,15 +52,14 @@ router.get("/results/priorsearch/:id", function(req, res) {
                 var searchResult = data[i];
                 console.log("this is equal");
                 console.log("This is the result: " + searchResult);
+                hbsObject = {
+                    userName: req.user.firstname,
+                    searchHistory: data,
+                    lastSearch: searchResult
+                };
+                console.log("prior search: " + hbsObject);
             }
-            // console.log("Prior search:" + "0%", data);
-            var hbsObject = {
-                userName: req.user.firstname,
-                searchHistory: data,
-                lastSearch: searchResult
-            };
         }
-        // console.log(hbsObject);
         res.render("dashboard", hbsObject);
     });
 });
