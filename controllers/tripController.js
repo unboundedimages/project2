@@ -65,6 +65,15 @@ router.get("/results/priorsearch/:id", function(req, res) {
 });
 
 
+//Get results of search to server in json format
+//=============================================
+router.get("/api/newSearch", function(req, res) {
+    db.SearchLocation.findAll({})
+        .then(function(databaseResult) {
+            res.json(databaseResult);
+        });
+});
+
 //Post results of search to server
 //=============================================
 router.post("/api/newSearch", function(req, res) {
