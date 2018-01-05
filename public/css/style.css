@@ -121,3 +121,160 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+
+/*cell phone fix*/
+
+#navimg {
+    position: relative;
+    height: 250px;
+    z-index: 1!important;
+}
+
+#tripForm {
+    z-index: 1;
+    background-color: #f8f8f8;
+}
+
+/*submitbutton*/
+
+#sbmt {
+    background-color: #56a2dc;
+    color: white;
+    border-color: #273b56;
+    margin-top: 6px;
+
+}
+
+/*logout button*/
+
+#lgo {
+    margin-left: 100px;
+    background-color: #0d422e;
+    color: white;
+    border-color: #273b56;
+}
+
+/*iPad Pro Landscape*/
+
+@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+
+    #lgo {
+        margin-left: 120px;
+        margin-top: 5px;
+    }
+    #sbmt {
+        margin-left: 70px;
+    }
+}
+
+
+/*iPad landscape*/
+
+@media only screen and (min-width: 830px) and (max-width: 1024px) {
+
+    .navbar-form .form-control {
+        display: inline-block;
+        width: 18%;
+        vertical-align: middle;
+    }
+    #lgo {
+        margin-left: 18px;
+        margin-top: 5px;
+    }
+    #sbmt {
+        margin-left: 15px;
+    }
+}
+
+
+
+/*iPad portriat*/
+
+@media only screen and (min-width: 767px) and (max-width: 829px) {
+
+    .navbar-form .form-control {
+        display: inline-block;
+        width: 18%;
+        vertical-align: middle;
+    }
+    #lgo {
+        margin-left: 18px;
+        margin-top: 5px;
+    }
+    #sbmt {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    #lgo {
+        /*margin-left: 194px;*/
+        margin-top: 13px;
+    }
+}
+
+
+
+
+/*iphone x landscape*/
+
+@media (max-width: 814px) and (min-width: 769px) {
+    /*forms.less:614*/
+    .navbar-form .form-control {
+        display: inline-block;
+        width: 20%;
+        vertical-align: middle;
+    }
+    #lgo {
+        margin-top: 8px;
+        /*margin-left: 30px;*/
+    }
+}
+
+/*nexus 6p*/
+
+@media screen and (max-width: 737px) and (min-width: 442px) {
+    #lgo {
+        margin-top: 8px;
+        margin-left: 450px;
+    }
+    #sbmt {
+        margin-left: 30px;
+    }
+
+}
+
+/*nexus 5 portriat*/
+
+@media screen and (max-width: 414px) and (min-width: 361px) {
+    #lgo {
+        /*margin-left: 194px;*/
+        margin-top: 8px;
+        margin-left: 180px;
+    }
+    #sbmt {
+        margin-left: 20px;
+    }
+}
+
+/*galaxy s5 portrait*/
+
+@media screen and (max-width: 360px) {
+    #lgo {
+        margin-left: 165px;
+        margin-top: 8px;
+    }
+}
+
+/*galaxy s5 landscape*/
+
+@media screen and (max-width: 640px) and (min-width: 415px) {
+    #lgo {
+        margin-left: 410px;
+        margin-top: 8px;
+    }
+    #sbmt {
+        margin-left: 40px;
+    }
+}
